@@ -70,7 +70,7 @@ public class StockService implements IStockService{
 			long existencia = stock.getQuantity() - movementDTO.getQuantity();
 
 			if(existencia < 0) {
-				throw new OutOfStockException("sin stock");
+				throw new OutOfStockException(stock.getProduct().getId());
 			}
 
 			stock.setQuantity(existencia);

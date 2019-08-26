@@ -19,7 +19,6 @@ public class ProductService {
 	
 	@Autowired
 	private ModelMapper modelMapper;
-	
 
 	public List<ProductDTO> getAll() {
 		List<Product> productList = productRepository.findAll();

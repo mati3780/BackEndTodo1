@@ -10,6 +10,8 @@ import todo1.dto.StockDTO;
 import todo1.dto.MovementDTO;
 import todo1.exceptions.OutOfStockException;
 import todo1.exceptions.StockNotFoundException;
+import todo1.model.Brand;
+import todo1.model.Product;
 import todo1.model.Stock;
 import todo1.repository.StockRepository;
 import java.util.Optional;
@@ -31,11 +33,18 @@ public class SocktServiceTests {
 
 	@BeforeEach
 	void setMock() {
+		Product product = new Product();
+		product.setCode(2L);
+		product.setBrand(new Brand());
+		product.setDescription("CAMISETA");
+		product.setId(22L);
+
 		Optional<Stock> stockIn = Optional.of(new Stock());
 
 		stockIn.map(
 				x -> {
 					x.setQuantity(0L);
+					x.setProduct(product);
 					x.setId(1L);
 					return x;
 				});
@@ -61,7 +70,7 @@ public class SocktServiceTests {
 	 * actualizada sin exceptions
 	 */
 	@Test
-	public void addMovementAdditionWithoutException() {
+	public void addMovementAdditionSucess() {
 
 		MovementDTO movementDTO = new MovementDTO();
 		movementDTO.setType(inMovement);
@@ -86,7 +95,7 @@ public class SocktServiceTests {
 	 * actualizada sin exceptions
 	 */
 	@Test
-	public void addMovementSubtractionWithoutException() {
+	public void addMovementSubtractionSucces() {
 
 		MovementDTO movementDTO = new MovementDTO();
 		movementDTO.setType(outMovement);
@@ -107,7 +116,7 @@ public class SocktServiceTests {
 
 	/*
 	 * Dado un Stock inicial con existencia
-	 * con un id valido y un egreso
+	 * con un id válido y un egreso
 	 * se espera una exception OutOfStockException
 	 */
 	@Test
