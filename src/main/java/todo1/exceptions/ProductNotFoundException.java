@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ProductNotFoundException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
 	private static final Logger log = LoggerFactory.getLogger(ProductNotFoundException.class);
 	public ProductNotFoundException(Long id) {
 		super("Producto no encontrado, id: " + id);

@@ -6,20 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import todo1.dto.ProductDTO;
-import todo1.dto.StockDTO;
-import todo1.exceptions.OutOfStockException;
 import todo1.exceptions.ProductNotFoundException;
-import todo1.exceptions.StockNotFoundException;
 import todo1.model.Brand;
 import todo1.model.Product;
-import todo1.model.Stock;
 import todo1.repository.ProductRepository;
-
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
